@@ -1,10 +1,12 @@
-<div class="img-container">
-  <img [@animateState]="currentState" src="https://api.adorable.io/avatars/leono286@adorable.io.png" alt="leono286's_adorable_face">
-</div>
-<div class="button-container">
-  <button (mouseover)="updateState('round')" (mouseleave)="updateState('')">Round out</button>
-  <button (mouseover)="updateState('rotate')" (mouseleave)="updateState('')">Rotate</button>
-  <button (mouseover)="updateState('hinge')" (mouseleave)="updateState('')">Hinge</button>
-  <button (mouseover)="updateState('crazy')" (mouseleave)="updateState('')">Crazy time</button>
-  <button (mouseover)="updateState('bye')" (mouseleave)="updateState('')">Bye!</button>
+<div [@hideElements]="finalState">
+  <div class="img-container">
+    <img class="element-to-hide" [@animateState]="currentState" src="https://api.adorable.io/avatars/leono286@adorable.io.png" alt="leono286's_adorable_face">
+  </div>
+  <div  class="button-container">
+    <button class="element-to-hide" (mouseover)="updateState('round')" (mouseleave)="updateState('')">Round out</button>
+    <button class="element-to-hide" (mouseover)="updateState('rotate')" (mouseleave)="updateState('')">Rotate</button>
+    <button class="element-to-hide" (mouseover)="updateState('hinge')" (mouseleave)="updateState('')">Hinge</button>
+    <button class="element-to-hide" (mouseover)="updateState('crazy')" (mouseleave)="updateState('')">Crazy time</button>
+    <button class="element-to-hide" (mouseover)="hideElements()">Bye!</button>
+  </div>
 </div>
