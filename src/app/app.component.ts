@@ -25,13 +25,14 @@ import { trigger, state, style, animate, transition, keyframes, query, stagger }
       transition('* => bye', [query('.element-to-hide',  stagger(550, [
         animate('0.5s', style({ opacity: 0 }))
       ]))]),
-      transition('* => reset', [query('.element-to-hide', animate('0.2s', style({ opacity: 1 })))])
+      transition('* => reset', [query('.element-to-hide', animate('0.2s 1.8s', style({ opacity: 1 })))])
     ]),
     trigger('resetElement', [
-      state('bye', style({display: 'block'})),
-      state('reset', style({display: 'none'})),
+      state('bye', style({opacity: '1'})),
+      state('reset', style({opacity: '0'})),
       transition('* => bye', animate('200ms 3s ease-out')),
-      transition('bye => reset', animate('200ms ease-out'))
+      transition('bye => reset', [animate('2s ease-out', style({ transform: ' scale3d(0.07,0.07,0.07) rotate(1200deg)', opacity: '0' }))])
+      
     ])
   ]
 })
