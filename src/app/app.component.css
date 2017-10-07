@@ -21,3 +21,10 @@
   border-color: #0e0e0e;
   transition: all 0.3s;
 }
+.reset {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 30px);
+
+}

@@ -17,13 +17,21 @@ import { trigger, state, style, animate, transition, keyframes, query, stagger }
       ])
       )]
       ),
-      transition('* => crazy', [animate(3000, style({ transform: 'rotate(720deg) scale3d(0.7, 1.5, 0.5)' }))])
+      transition('* => crazy', [animate(3000, style({ transform: 'rotate(720deg) scale3d(0.7, 1.5, 0.5)' }))]),
     ]),
     trigger('hideElements', [
       state('bye', style({ opacity: '0' })),
-      transition('* => bye', [query('.element-to-hide',  stagger(800, [
+      state('reset', style({ opacity: '1' })),
+      transition('* => bye', [query('.element-to-hide',  stagger(550, [
         animate('0.5s', style({ opacity: 0 }))
-      ]))])
+      ]))]),
+      transition('* => reset', [query('.element-to-hide', animate('0.2s', style({ opacity: 1 })))])
+    ]),
+    trigger('resetElement', [
+      state('bye', style({display: 'block'})),
+      state('reset', style({display: 'none'})),
+      transition('* => bye', animate('200ms 3s ease-out')),
+      transition('bye => reset', animate('200ms ease-out'))
     ])
   ]
 })
@@ -41,6 +49,11 @@ export class AppComponent {
   hideElements(){
     console.log('hiding-elements');
     this.finalState = 'bye';
+  }
+
+  showElements(){
+    console.log('showing-elements');
+    this.finalState = 'reset';
   }
 
 
