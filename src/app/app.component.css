@@ -1,0 +1,23 @@
+.img-container img {
+  display: block;
+  max-width: 100%;
+  margin: 4% auto;
+}
+.button-container {
+  text-align: center;
+  margin-top: 2%;
+}
+.button-container button {
+  margin: 1%;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #AE8CF2;
+  color: #AE8CF2;
+}
+.button-container button:hover {
+  background-color: #AE8CF2;
+  color: #0e0e0e;
+  border-color: #0e0e0e;
+  transition: all 0.3s;
+}
